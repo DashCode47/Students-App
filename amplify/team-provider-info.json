@@ -1,0 +1,27 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-studentsapp-staging-112521-authRole",
+      "UnauthRoleArn": "arn:aws:iam::566870465264:role/amplify-studentsapp-staging-112521-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::566870465264:role/amplify-studentsapp-staging-112521-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-studentsapp-staging-112521-deployment",
+      "UnauthRoleName": "amplify-studentsapp-staging-112521-unauthRole",
+      "StackName": "amplify-studentsapp-staging-112521",
+      "StackId": "arn:aws:cloudformation:us-east-1:566870465264:stack/amplify-studentsapp-staging-112521/1e0c02d0-1d56-11ed-8932-122479817a53",
+      "AmplifyAppId": "d1c8cd5jgyd69h",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-studentsapp-staging-112521-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "StudentsApp": {}
+      },
+      "function": {
+        "StudentsAppPostConfirmation": {
+          "deploymentBucketName": "amplify-studentsapp-staging-112521-deployment",
+          "s3Key": "amplify-builds/StudentsAppPostConfirmation-47366135345537424a7a-build.zip"
+        }
+      }
+    }
+  }
+}

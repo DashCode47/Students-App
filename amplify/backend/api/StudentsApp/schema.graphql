@@ -1,0 +1,41 @@
+type Class @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  Students: [Student] @hasMany(indexName: "byClass", fields: ["id"])
+  Subjects: [Subject] @hasMany(indexName: "byClass", fields: ["id"])
+}
+
+type Subject @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nam: String!
+  teacher: String
+  Grades: [Grades] @hasMany(indexName: "bySubject", fields: ["id"])
+  Topics: [Topic] @hasMany(indexName: "bySubject", fields: ["id"])
+  classID: ID! @index(name: "byClass")
+}
+
+type Topic @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  date: AWSDate
+  Grades: [Grades] @hasMany(indexName: "byTopic", fields: ["id"])
+  subjectID: ID! @index(name: "bySubject")
+}
+
+type Student @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  lastName: String
+  avatar: String
+  Grades: Grades @hasOne
+  classID: ID! @index(name: "byClass")
+}
+
+type Grades @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  nota: Float
+  studentID: ID! @index(name: "byStudent")
+  Student: Student @belongsTo(fields: ["studentID"])
+  topicID: ID! @index(name: "byTopic")
+  subjectID: ID! @index(name: "bySubject")
+}
